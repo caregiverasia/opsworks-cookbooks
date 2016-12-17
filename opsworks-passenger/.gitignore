@@ -1,0 +1,21 @@
+.vagrant
+Berksfile.lock
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+/cookbooks
+
+# Bundler
+bin/*
+.bundle/*
+
+.idea
+.kitchen/
+.kitchen.local.yml
+*.pem
+.unused-cookbook
+test-kitchen.sportngin.com.crt
+test-kitchen.sportngin.com.key
