@@ -35,7 +35,7 @@ node[:deploy].each do |application, deploy|
 
   execute "restart delayed_job" do
     command node[:delayed_job][application][:restart_command]
-    environment deploy[:environment].to_hash
+    environment deploy[:environment_variables].to_hash
   end
 
 end
