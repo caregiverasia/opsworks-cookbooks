@@ -9,6 +9,8 @@ base_gzip_types = node[:nginx][:gzip_types]
 override[:nginx][:gzip_types] = (base_gzip_types + %w[application/json application/javascript])
 
 default[:nginx][:dir] = "/etc/nginx"
+default[:nginx][:version] = "1.10"
+
 # SSL configuration
 default[:nginx][:use_hsts] = false
 default[:nginx][:ssl_dir] = "#{node[:nginx][:dir]}/ssl"
