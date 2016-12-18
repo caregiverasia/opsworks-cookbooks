@@ -8,6 +8,7 @@ override[:nginx][:gzip_comp_level] = "8"
 base_gzip_types = node[:nginx][:gzip_types]
 override[:nginx][:gzip_types] = (base_gzip_types + %w[application/json application/javascript])
 
+default[:nginx][:dir] = "/etc/nginx"
 # SSL configuration
 default[:nginx][:use_hsts] = false
 default[:nginx][:ssl_dir] = "#{node[:nginx][:dir]}/ssl"
@@ -66,7 +67,7 @@ default[:passenger][:monitor][:app_name] = nil
 default[:passenger][:version] = "5.1.0"
 default[:passenger][:rack_version] = "1.6.4" # This is required to support ruby < 2.2 (Rack 2 requires >= 2.2)
 # TODO make passenger root dynamic
-default[:passenger][:conf][:passenger_root] = "/usr/local/lib/ruby/gems/1.9.1/gems/passenger-#{node[:passenger][:version]}"
+default[:passenger][:conf][:passenger_root] = "/usr/local/lib/ruby/gems/2.0.0/gems/passenger-#{node[:passenger][:version]}"
 default[:passenger][:conf][:passenger_ruby] = node[:ruby_wrapper][:install_path]
 
 # http://blog.phusion.nl/2013/03/12/tuning-phusion-passengers-concurrency-settings/

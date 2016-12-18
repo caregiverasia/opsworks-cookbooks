@@ -21,7 +21,7 @@ bash "Setup Nginx integration in passenger gem" do
 end
 
 # include_recipe "opsworks-passenger::custom_package"
-include_recipe "opsworks-passenger::custom_install"
+# include_recipe "opsworks-passenger::custom_install"
 
 directory node[:nginx][:dir] do
   owner "root"
