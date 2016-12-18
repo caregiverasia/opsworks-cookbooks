@@ -25,7 +25,7 @@ default[:nginx][:custom_package][:package_location] = "/usr/src/rpm/RPMS/x86_64/
 default[:nginx][:custom_package][:source] = nil
 
 # Static maintenance page
-default[:nginx][:prefix_dir] = "/usr/share/nginx"
+default[:nginx][:prefix_dir] = "/usr"
 default[:nginx][:serve_maintenance_page] = false
 default[:nginx][:maintenance_file] = "#{node[:nginx][:prefix_dir]}/html/maintenance.html"
 
