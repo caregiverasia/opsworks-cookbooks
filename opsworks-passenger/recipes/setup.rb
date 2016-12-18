@@ -20,7 +20,8 @@ bash "Setup Nginx integration in passenger gem" do
   subscribes :run, 'gem_package[passenger]', :immediately
 end
 
-include_recipe "opsworks-passenger::custom_package"
+# include_recipe "opsworks-passenger::custom_package"
+include_recipe "opsworks-passenger::custom_install"
 
 directory node[:nginx][:dir] do
   owner "root"
