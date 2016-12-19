@@ -6,7 +6,7 @@ bash 'build-and-install-nginx-passenger' do
   code <<-EOF
     passenger-install-nginx-module --auto --prefix=#{node[:nginx][:prefix_dir]} --auto-download --extra-configure-flags="--conf-path='/etc/nginx/nginx.conf'"
   EOF
-  not_if "nginx -V 2>&1 | grep passenger"
+  not_if "nginx -V 2>&1 | grep passenger | grep '#{node[:opsworks][:ruby_version]}'"
 end
 
 # We are deleting default files packaged with the nginx rpm
