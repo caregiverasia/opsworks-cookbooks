@@ -70,10 +70,10 @@ node[:deploy].each do |application, deploy|
     app application
   end
 
-  # opsworks_deploy do
-  #   deploy_data deploy
-  #   app application
-  # end
+  opsworks_deploy do
+    deploy_data deploy
+    app application
+  end
 
   opsworks_passenger_nginx_app application do
     deploy deploy
