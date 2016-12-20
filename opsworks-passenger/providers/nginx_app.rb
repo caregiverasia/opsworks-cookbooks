@@ -39,7 +39,8 @@ action :create do
         :try_static_files => node[:nginx][:try_static_files],
         :default_server => node[:nginx][:default_server],
         :status => node[:nginx][:status],
-        :dh_key => node[:nginx][:dh_key]
+        :dh_key => node[:nginx][:dh_key],
+        :environment_variables => deploy[:environment_variables]
     )
     if restart && ::File.exists?("#{node[:nginx][:dir]}/sites-enabled/#{application_name}")
       notifies :reload, "service[nginx]", :delayed
