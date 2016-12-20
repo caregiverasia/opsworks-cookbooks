@@ -17,8 +17,8 @@ server {
   <% end %>
     # Turn on the passenger Nginx helper for this location.
     passenger_enabled on;
-    <%= OpsWorks::Escape.escape_double_quotes(environment_variables.each do |k,v| %>
-    passenger_env_var <%= "#{k} \"#{v}\"" %>
+    <% @environment_variables.each do |k,v| %>
+    passenger_env_var <%= "#{k} \"#{v}\"" %>;
     <% end %>
 
     # These don't seem to work in stack, which is in the http {} block
@@ -96,6 +96,9 @@ server {
   <% end %>
     # Turn on the passenger Nginx helper for this location.
     passenger_enabled on;
+    <% @environment_variables.each do |k,v| %>
+    passenger_env_var <%= "#{k} \"#{v}\"" %>;
+    <% end %>
 
     # These don't seem to work in stack, which is in the http {} block
     passenger_set_header HTTP_X_FORWARDED_FOR   $proxy_add_x_forwarded_for;
