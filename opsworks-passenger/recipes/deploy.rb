@@ -77,6 +77,8 @@ node[:deploy].each do |application, deploy|
 
   opsworks_passenger_nginx_app application do
     deploy deploy
+    if node[:nginx][:restart_on_deploy]
+      notifies :reload, "service[nginx]", :delayed
+    end
   end
-
 end
