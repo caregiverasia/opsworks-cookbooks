@@ -21,7 +21,7 @@ node[:deploy].each do |application, deploy|
   open("#{deploy[:deploy_to]}/shared/.env", 'w') do |f|
     require 'yaml'
     environment_variables.each do |name, value|
-      f.puts "#{name}=#{value.to_s.shellescape}"
+      f.puts "#{name}=#{value.to_s}"
     end
   end  
 end
