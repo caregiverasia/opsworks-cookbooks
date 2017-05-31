@@ -3,6 +3,7 @@
   adapter: <%= @database[:adapter].to_s.inspect %>
   database: <%= @database[:database].to_s.inspect %>
   encoding: <%= (@database[:encoding] || 'utf8').to_s.inspect %>
+  collation: <%= (@database[:collation] || 'utf8_unicode_ci').to_s.inspect %>
   host: <%= (@database[:host] || 'localhost').to_s.inspect %>
   username: <%= @database[:username].to_s.inspect %>
   password: <%= @database[:password].to_s.inspect %>
