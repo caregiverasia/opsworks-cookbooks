@@ -17,7 +17,7 @@ node[:deploy].each do |application, deploy|
     file "#{deploy[:deploy_to]}/shared/.env" do
       content env_file_content
       owner "deploy"
-      group  "www-data"
+      group  "nginx"
       mode 00774
     end
 
