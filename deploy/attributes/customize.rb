@@ -11,12 +11,10 @@
 #normal[:opsworks][:deploy_user][:shell] = '/bin/zsh'
 #normal[:opsworks][:deploy_user][:user] = 'deploy'
 
-migrate_node = 'worker1'
-
-current_hostname = node[:opsworks][:instance][:hostname]
+migrate_node = node[:opsworks][:layers]['worker'][:instances].keys.sort.first
 
 node[:deploy].each do |application, deploy|
-  if migrate_node == current_hostname
+  if migrate_node[:hostname] == node[:opsworks][:instance][:hostname]
     normal[:deploy][application][:migrate] = true
   else
     normal[:deploy][application][:migrate] = false
