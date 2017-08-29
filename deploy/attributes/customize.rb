@@ -14,7 +14,7 @@
 migrate_node = node[:opsworks][:layers]['worker'][:instances].keys.sort.first
 
 node[:deploy].each do |application, deploy|
-  if migrate_node[:hostname] == node[:opsworks][:instance][:hostname]
+  if migrate_node == node[:opsworks][:instance][:hostname]
     normal[:deploy][application][:migrate] = true
   else
     normal[:deploy][application][:migrate] = false
