@@ -19,7 +19,7 @@ node[:deploy].each do |application, deploy|
     notifies :run, resources(:execute => "restart Rails app #{application}")
 
     only_if do
-      File.exists?("#{deploy[:deploy_to]}") && File.exists?("#{deploy[:deploy_to]}/shared/config/")
+      deploy[:database][:host].present? && File.directory?("#{deploy[:deploy_to]}/shared/config/")
     end
   end
 
@@ -37,7 +37,7 @@ node[:deploy].each do |application, deploy|
     notifies :run, resources(:execute => "restart Rails app #{application}")
 
     only_if do
-      File.exists?("#{deploy[:deploy_to]}") && File.exists?("#{deploy[:deploy_to]}/shared/config/")
+      deploy[:memcached][:host].present? && File.directory?("#{deploy[:deploy_to]}/shared/config/")
     end
   end
 end
