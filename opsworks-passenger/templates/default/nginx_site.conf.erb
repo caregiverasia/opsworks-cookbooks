@@ -6,6 +6,9 @@ server {
   root   <%= @deploy[:absolute_document_root] %>;
 
   location / {
+    if ($request_uri == '/apiendpoint/v1/ping') {
+      set $maintenance 0;
+    }
     if ($maintenance) {
       return 503;
       break;
