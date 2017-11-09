@@ -44,9 +44,11 @@ server {
     rack_env <%= @rails_env %>;
   }
 
-  location /assets {
+  location ~ ^/assets/ {
     expires 1y;
-    gzip_static on;
+    add_header Cache-Control public;
+
+    add_header ETag "";
   }
 
   error_page 503 /maintenance.html;
