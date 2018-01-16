@@ -3,6 +3,10 @@ server {
   server_name  <%= @deploy[:domains].join(" ") %> <%= node[:hostname] %>;
   access_log  <%= node[:nginx][:log_dir] %>/<%= @deploy[:domains].first %>.access.log<%=" #{node[:nginx][:log_format_name]}" unless node[:nginx][:log_format_name].nil? %>;
 
+  if ($host = "caregiverasia.com") {
+    return 301 https://www.caregiverasia.com$request_uri;
+  }
+
   root   <%= @deploy[:absolute_document_root] %>;
 
   location / {
