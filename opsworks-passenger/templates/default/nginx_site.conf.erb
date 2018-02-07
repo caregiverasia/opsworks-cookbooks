@@ -4,7 +4,7 @@ server {
   access_log  <%= node[:nginx][:log_dir] %>/<%= @deploy[:domains].first %>.access.log<%=" #{node[:nginx][:log_format_name]}" unless node[:nginx][:log_format_name].nil? %>;
 
   if ($request_method = GET) {
-    set $condition  P;
+    set $condition  G;
   }
 
   if ($host = "caregiverasia.com") {
