@@ -67,6 +67,16 @@ template "#{node[:nginx][:dir]}/sites-available/default" do
   mode 0644
 end
 
+remote_file '/usr/sbin/cloudfront-ip-ranges-updater.sh' do
+  source 'cloudfront-ip-ranges-updater.sh'
+  mode 0755
+end
+
+execute 'Update CloudFront nginx ip-ranges' do
+  command '/usr/sbin/cloudfront-ip-ranges-updater.sh'
+  action :run
+end
+
 include_recipe "nginx::service"
 
 service "nginx" do
