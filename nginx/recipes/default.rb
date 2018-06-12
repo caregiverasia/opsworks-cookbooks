@@ -67,6 +67,8 @@ template "#{node[:nginx][:dir]}/sites-available/default" do
   mode 0644
 end
 
+package 'jq'
+
 cookbook_file '/usr/sbin/cloudfront-ip-ranges-updater.sh' do
   source 'cloudfront-ip-ranges-updater.sh'
   mode 0755
