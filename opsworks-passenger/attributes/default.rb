@@ -88,6 +88,8 @@ end
 default[:passenger][:conf][:passenger_min_instances] = min_app_processes
 default[:passenger][:conf][:passenger_max_pool_size] = max_app_processes
 
+default[:passenger][:conf][:passenger_max_request_queue_size] = 500
+
 default[:passenger][:conf][:passenger_max_instances_per_app] = 0
 default[:passenger][:conf][:passenger_spawn_method] = "smart"
 default[:passenger][:conf][:passenger_pool_idle_time] = 300
