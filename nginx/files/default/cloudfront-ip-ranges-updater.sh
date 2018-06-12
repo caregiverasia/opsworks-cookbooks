@@ -22,7 +22,7 @@ RANGES=$(cat $CLOUDFRONT_LOCAL_FILE | jq -r '.prefixes[] | select(.service=="CLO
 
 # Loop through the ranges, adding each to the file
 while read -r line; do
-    echo "set_real_ip_from $(line);" >> $CLOUDFRONT_IP_RANGES_FILE_PATH
+    echo "set_real_ip_from ${line};" >> $CLOUDFRONT_IP_RANGES_FILE_PATH
 done <<< "$RANGES"
 
 echo "" >> $CLOUDFRONT_IP_RANGES_FILE_PATH
