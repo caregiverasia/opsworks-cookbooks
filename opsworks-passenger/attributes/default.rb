@@ -105,3 +105,5 @@ default[:passenger][:conf][:passenger_buffer_size] = '32k'
 default[:passenger][:conf][:passenger_user_switching] = nil
 default[:passenger][:conf][:passenger_default_user] = nil
 default[:passenger][:conf][:passenger_default_group] = nil
+
+default[:passenger][:conf][:passenger_disable_security_update_check] = 'on'
