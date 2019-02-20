@@ -12,7 +12,7 @@ node[:deploy].each do |application, deploy|
 
     environment_variables = deploy[:app_env].to_h.merge(deploy[:environment_variables].to_h)
 
-    env_file_content = environment_variables.map{|name,value| "#{name}=#{value.to_s.shellescape}"}.join("\n")
+    env_file_content = environment_variables.map{|key,value| "#{key}=#{value}"}.join("\n")
 
     file "#{deploy[:deploy_to]}/shared/.env" do
       content env_file_content
