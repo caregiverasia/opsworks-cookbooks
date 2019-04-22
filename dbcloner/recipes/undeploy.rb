@@ -6,7 +6,7 @@ node[:deploy].each do |application, deploy|
     script "delete db" do
       interpreter "bash"
       code <<-EOH
-    mysqladmin -u $DATABASE_USERNAME -p$DATABASE_PASSWORD -h $DATABASE_HOST drop $DATABASE_NAME
+    mysqladmin --force -u $DATABASE_USERNAME -p$DATABASE_PASSWORD -h $DATABASE_HOST drop $DATABASE_NAME
     EOH
       environment env
       only_if do
