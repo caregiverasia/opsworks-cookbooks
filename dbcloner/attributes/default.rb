@@ -1,1 +1,1 @@
-default[:dbclone][:source] = 'cgastaging'
+default[:dbcloner][:source] = 'cgastaging'
