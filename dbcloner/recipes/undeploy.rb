@@ -4,7 +4,6 @@ node[:deploy].each do |application, deploy|
 
   begin
     script "delete db" do
-      cwd release_path
       interpreter "bash"
       code <<-EOH
     mysqladmin -u $DATABASE_USERNAME -p$DATABASE_PASSWORD -h $DATABASE_HOST drop $DATABASE_NAME
