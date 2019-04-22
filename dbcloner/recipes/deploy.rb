@@ -4,7 +4,6 @@ node[:deploy].each do |application, deploy|
 
   begin
     script "clone db" do
-      cwd release_path
       interpreter "bash"
       code <<-EOH
     export LANG=C
