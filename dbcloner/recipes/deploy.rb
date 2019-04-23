@@ -16,7 +16,7 @@ node[:deploy].each do |application, deploy|
         # Run only on worker nodes
         env['DATABASE_NAME'] != 'caregiverasia' && env['DATABASE_NAME'] != node[:dbcloner][:source] && env['RAILS_ENV'] != 'production' && node[:opsworks][:instance][:layers].include?('worker')
       end
-      ignore_failure false
+      ignore_failure true
     end
 
   rescue SystemCallError
