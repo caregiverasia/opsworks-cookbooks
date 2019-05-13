@@ -2,6 +2,8 @@
 # Cookbook Name:: opsworks-passenger
 # Recipe:: undeploy
 
+include_recipe "nginx::service"
+
 node[:deploy].each do |application, deploy|
   if deploy[:application_type] != 'rails'
     Chef::Log.debug("Skipping opsworks-passenger::undeploy application #{application} as it is not an Rails app")
