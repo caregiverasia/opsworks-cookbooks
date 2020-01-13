@@ -1,6 +1,6 @@
-package %w(nodejs npm)  do
-  action :nothing
-end
+# package %w(nodejs npm)  do
+#   action :nothing
+# end
 
 bash 'prepare nodejs package' do
   code <<-EOH
