@@ -8,6 +8,5 @@ bash 'prepare nodejs package' do
     curl --silent --location https://rpm.nodesource.com/setup_10.x | bash -'
     EOH
   action :run
-  notifies :install, 'package[nodejs npm]', :immediately
   not_if 'rpm -qa | grep nodesource '
 end
