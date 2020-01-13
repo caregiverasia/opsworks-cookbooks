@@ -36,7 +36,7 @@ node[:dependencies][:gems].each do |gem_name, version|
     version(version)
     retries 2
     gem_binary node[:dependencies][:gem_binary]
-    options ''
+    options '--no-document'
   end
 end
 
