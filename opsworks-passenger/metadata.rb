@@ -11,6 +11,7 @@ supports 'amazon'
 depends 'build-essential'
 
 # opsworks-cookbooks
+depends "opsworks_commons"
 depends 'deploy'
 depends 'ruby'
 depends 'scm_helper'
