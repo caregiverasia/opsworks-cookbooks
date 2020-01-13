@@ -58,7 +58,7 @@ class Chef
 
             with_env 'GEM_HOME' => gem_home do
               Chef::Log.info "Installing chef-gem #{name} #{version}"
-              Chef::Log.info `#{gem_binary_location} install #{name} -q --no-rdoc --no-ri --version '#{version}' #{opts}`
+              Chef::Log.info `#{gem_binary_location} install #{name} -q --version '#{version}' #{opts}`
               refresh_ruby_load_path
             end
           end
