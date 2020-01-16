@@ -17,7 +17,7 @@ describe_recipe 'deploy::rails' do
     node[:deploy].each do |app, deploy|
       if deploy[:auto_bundle_on_deploy] && deploy[:application_type] == 'rails'
         # Should return 0 if everything's installed correctly.
-        assert system("cd #{node[:deploy][app][:deploy_to]}/current && /usr/local/bin/bundle list")
+        assert system("cd #{node[:deploy][app][:deploy_to]}/current && bundle list")
       end
     end
   end
