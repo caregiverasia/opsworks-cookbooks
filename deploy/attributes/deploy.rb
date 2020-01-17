@@ -65,13 +65,15 @@ node[:deploy].each do |application, deploy|
     default[:deploy][application][:absolute_document_root] = "#{default[:deploy][application][:current_path]}/"
   end
 
-  if File.exists?('/usr/local/bin/rake')
-    # local Ruby rake is installed
-    default[:deploy][application][:rake] = '/usr/local/bin/rake'
-  else
-    # use default Rake/ruby
-    default[:deploy][application][:rake] = 'rake'
-  end
+  # if File.exists?('/usr/local/bin/rake')
+  #   # local Ruby rake is installed
+  #   default[:deploy][application][:rake] = '/usr/local/bin/rake'
+  # else
+  #   # use default Rake/ruby
+  #   default[:deploy][application][:rake] = 'rake'
+  # end
+
+  default[:deploy][application][:rake] = 'rake'
 
   default[:deploy][application][:migrate] = false
 
