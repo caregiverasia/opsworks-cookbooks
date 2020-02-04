@@ -1,11 +1,17 @@
 server {
-  listen   80;
-  server_name  127.0.0.1;
+  listen   80 default_server;
+  server_name _;
 
   access_log  <%= node[:nginx][:log_dir] %>/localhost.access.log;
 
   location / {
     root   /var/www/nginx-default;
     index  index.html index.htm;
+  }
+
+  location /apiendpoint/v1/ping {
+    proxy_set_header X-Forwarded-Proto 'http';
+    proxy_set_header "Host" <%= node[:hostname] %>;
+    proxy_pass http://127.0.0.1;
   }
 }
